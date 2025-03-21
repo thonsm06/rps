@@ -58,15 +58,67 @@ function playRound(humanChoice, computerChoice){
     return result;
 }
 
-function playGame(rounds) {
-    for(let i = 0; i < rounds; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(humanSelection, computerSelection));
-        console.log(`Human: ${humanScore} | Computer: ${computerScore}`)
-    }
+const body = document.querySelector("body");
+const rockBtn = document.createElement("button");
+const paperBtn = document.createElement("button");
+const scissorsBtn = document.createElement("button");
+const result = document.createElement("div");
+result.textContent = `${humanScore} | ${computerScore}`;
 
-    
+rockBtn.classList.toggle("button");
+paperBtn.classList.toggle("button");
+scissorsBtn.classList.toggle("button");
+
+rockBtn.textContent = "Rock";
+paperBtn.textContent = "Paper";
+scissorsBtn.textContent = "Scissors";
+
+rockBtn.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+    result.textContent = `${humanScore} | ${computerScore}`;
+    checkScore();
+});
+paperBtn.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+    result.textContent = `${humanScore} | ${computerScore}`;
+    checkScore();
+});
+scissorsBtn.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+    result.textContent = `${humanScore} | ${computerScore}`;
+    checkScore();
+});
+
+function checkScore() {
+    if (humanScore == 5) {
+        humanScore = 0;
+        computerScore = 0;
+        result.textContent = `${humanScore} | ${computerScore}`;
+        alert("You Win!");
+    } else if (computerScore == 5) {
+        humanScore = 0;
+        computerScore = 0;
+        result.textContent = `${humanScore} | ${computerScore}`;
+        alert("You Lose!");
+    }
 }
 
-playGame(5);
+
+body.appendChild(rockBtn);
+body.appendChild(paperBtn);
+body.appendChild(scissorsBtn);
+body.appendChild(result);
+
+
+// function playGame(rounds) {
+//     for(let i = 0; i < rounds; i++) {
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(humanSelection, computerSelection));
+//         console.log(`Human: ${humanScore} | Computer: ${computerScore}`)
+//     }
+
+    
+// }
+
+// playGame(5);
