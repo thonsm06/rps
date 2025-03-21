@@ -110,15 +110,3 @@ body.appendChild(scissorsBtn);
 body.appendChild(result);
 
 
-// function playGame(rounds) {
-//     for(let i = 0; i < rounds; i++) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         console.log(playRound(humanSelection, computerSelection));
-//         console.log(`Human: ${humanScore} | Computer: ${computerScore}`)
-//     }
-
-    
-// }
-
-// playGame(5);
