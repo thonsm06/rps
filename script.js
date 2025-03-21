@@ -58,7 +58,15 @@ function playRound(humanChoice, computerChoice){
     return result;
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(rounds) {
+    for(let i = 0; i < rounds; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(humanSelection, computerSelection));
+        console.log(`Human: ${humanScore} | Computer: ${computerScore}`)
+    }
 
-console.log(playRound(humanSelection, computerSelection));
+    
+}
+
+playGame(5);
